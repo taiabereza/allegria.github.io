@@ -1,0 +1,142 @@
+@use "sass:math";
+
+@import "base/mixins";
+@import url(https://fonts.googleapis.com/css?family=Jost:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300italic,regular,italic,500,500italic,600,600italic,700,700italic);
+
+$fontFamily: "Jost", sans-serif;
+$fontFamily2: "Cormorant Garamond", serif;
+$fontSize: rem(16);
+
+// Website palette
+$mainColor: #0F303F; // Text main color
+$subColor1: #EAE9E8; // Text color
+$subColor2: #E64926; // Text highlight & buttons color
+$subColor3: #FFFFFF; // Back color #1, also text
+$subColor4: #254A5A; // Back color #2
+$subColor5: #CEC6C4; // Back color #3
+$subColor6: #B7C1C5; // Text out of focus || Not chosen || Disabled
+
+// ================================ADAPTIVE VALUES================================
+
+// Page's minwidth
+$minWidth: 320;
+// Page's maxwidth
+$maxWidth: 1920;
+// Container msxwidth
+$maxWidthContainer: 1440;
+// Container padding = left pad + right pad
+$containerPadding: 100;
+
+// Contener common width
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+// Break-points
+$pc: em($containerWidth);
+$tablet: em(991.98);
+$mobile: em(767.98);
+$mobileSmall: em(479.98);
+
+// 1: responsive, 2: breakpoints
+$responsiveType: 1;
+
+@import "base/null";
+
+@if ($responsiveType==1) {
+
+    // Responsive
+    [class*="__container"] {
+        @if ($maxWidthContainer>0) {
+            max-width: rem($maxWidthContainer);
+            box-sizing: content-box;
+            margin: 0 auto;
+        }
+
+        @if ($containerPadding>0) {
+            padding: 0 rem(math.div($containerPadding, 2));
+        }
+    }
+}
+
+@else {
+
+    // Breakpoints
+    [class*="__container"] {
+        margin: 0 auto;
+
+        @if ($maxWidthContainer>0) {
+            max-width: rem($maxWidthContainer);
+            box-sizing: content-box;
+        }
+
+        @else {
+            @if ($containerPadding>0) {
+                padding: 0 rem(math.div($containerPadding, 2));
+            }
+        }
+
+        @media (max-width: $pc) {
+            max-width: rem(970);
+        }
+
+        @media (max-width: $tablet) {
+            max-width: rem(750);
+        }
+
+        @media (max-width: $mobile) {
+            max-width: none;
+
+            @if ($containerPadding>0 and $maxWidthContainer>0) {
+                padding: 0 rem(math.div($containerPadding, 2));
+            }
+        }
+    }
+}
+
+// ================================COMMON PROPS================================
+
+@import 'base/common';
+@import "base/animations";
+
+body {
+    @media (min-width: 2400px) {
+        font-size: rem(20);
+    }
+
+    @media (min-width: 3800px) {
+        font-size: rem(22);
+    }
+}
+
+html {
+    @media (max-width: $tablet) {
+        font-size: rem(20);
+    }
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .main {
+        height: fit-content;
+        padding-bottom: rem(125);
+        flex: 1 1 auto;
+        margin-top: 60px;
+    }
+}
+
+@import "header";
+
+// ================================MAIN================================
+
+@import "pages/main-page";
+@import "pages/main-clothes";
+@import "pages/main-item";
+@import "pages/main-contacts";
+@import "pages/main-cart";
+
+// ====================================================================
+
+@import "footer";

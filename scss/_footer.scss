@@ -1,0 +1,81 @@
+.footer {
+    background-color: $subColor3;
+    border-top: 1px solid $subColor1;
+    &__container {
+        max-width: 100%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &-promo {
+        width: inherit;
+        padding: rem(62) 0;
+        display: inherit;
+        flex-direction: column;
+        align-items: center;
+
+        form[name=promo-email] {
+            display: inherit;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            label {
+                font-family: $fontFamily2;
+                font-weight: 600;
+                font-size: em(30);
+                line-height: rem(31);
+                letter-spacing: rem(3);
+                text-transform: uppercase;
+            }
+            input {
+                width: rem(250);
+                margin-top: rem(20);
+                border-bottom: 1px solid $mainColor;
+                text-align: center;
+                &:focus {
+                    outline: none;
+                }
+
+                @media (max-width: $mobileSmall) {
+                    width: rem(200);
+                }
+            }
+
+            @media (max-width: $mobileSmall) {
+                font-size: rem(13);
+            }
+        }
+
+        &__nav {
+            margin-top: rem(30);
+            display: inherit;
+            gap: rem(40);
+            color: $subColor6;
+            li {
+                white-space: nowrap;
+                &:hover {
+                    color: $mainColor;
+                }
+            }
+
+            @media (max-width: $mobile) {
+                font-size: rem(14);
+            }
+
+            @media (max-width: $mobileSmall) {
+                flex-wrap: wrap;
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    }
+
+    &-bottom {
+        width: 100%;
+        text-align: center;
+        padding: rem(15) 0;
+        border-top: 1px solid $subColor1;
+    }
+}

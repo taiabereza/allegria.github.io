@@ -1,0 +1,185 @@
+.cart {
+    &__container {
+        @media (max-width: $tablet) {
+            padding: rem(19) rem(20);
+        }
+
+        @media (max-width: $mobile) {
+            padding: rem(19) rem(10);
+        }
+    }
+
+    &__header {
+        margin-top: rem(45);
+        font-weight: 500;
+        font-size: rem(25);
+        line-height: rem(25);
+        text-align: center;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: rem(30);
+
+        form {
+            display: flex;
+            flex-direction: column;
+
+            input:not([type=radio]) {
+                width: rem(270);
+                margin-top: 1.25rem;
+                padding: rem(5) 0;
+                border-bottom: 1px solid #0F303F;
+                background: transparent;
+
+                &:focus {
+                    outline: none;
+                }
+
+                @media (max-width: $mobileSmall) {
+                    width: rem(230);
+                }
+            }
+
+            @media (max-width: 920px) {
+                margin: 0 auto;
+            }
+        }
+
+        .items {
+            margin-left: 10%;
+
+            @media (max-width: 920px) {
+                margin: 0;
+            }
+
+            .cards {
+                flex-direction: column;
+                margin: 0;
+
+                .card {
+                    width: 100%;
+                    padding: rem(45) rem(38);
+                    flex-direction: row;
+                    margin-top: rem(-1);
+                    transition: none;
+
+                    border: 1px solid $subColor1;
+
+                    &:hover {
+                        animation: none;
+                        transform: scale(1);
+                    }
+
+                    &__img {
+                        width: rem(140);
+                        height: rem(147);
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+
+                    &__wrapper {
+                        align-items: flex-start;
+                        margin: rem(10) rem(25);
+                    }
+
+                    &__delete {
+                        &-btn {
+                            width: rem(22);
+                            height: rem(22);
+                            margin: rem(22);
+                            border-radius: 50%;
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            svg {
+                                stroke: $mainColor;
+                            }
+
+                            &:hover svg {
+                                stroke: $subColor2;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .total {
+            padding: rem(30) rem(38);
+            margin-top: rem(-1);
+            border: 1px solid $subColor1;
+            font-weight: 300;
+            font-size: rem(20);
+            line-height: rem(27);
+
+            span {
+                font-weight: 600;
+            }
+        }
+
+        @media (max-width: 920px) {
+            flex-direction: column;
+        }
+    }
+
+    &__form {
+
+        input[type=radio] {
+            &:checked {
+                accent-color: $subColor2;
+            }
+        }
+
+        &-choice {
+            margin-top: rem(10);
+        }
+
+        &-shipment,
+        &-payment {
+            font-weight: 600;
+            font-size: rem(14);
+            line-height: rem(24);
+            text-transform: uppercase;
+            margin-top: rem(25);
+        }
+
+        &-promo {
+            margin-top: rem(10);
+            font-size: rem(14);
+            line-height: rem(20);
+            color: $subColor2;
+        }
+
+        &-pay {
+            display: flex;
+            flex-direction: column;
+            input {
+                width: 30px;
+            }
+        }
+        button {
+            width: 100%;
+            margin-top: rem(20);
+            padding: rem(14);
+            font-weight: 500;
+            text-transform: uppercase;
+            background: $subColor2;
+            color: $subColor3;
+            &:hover {
+                background: darken($subColor2, 10%);
+            }
+        }
+    }
+}

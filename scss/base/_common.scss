@@ -1,0 +1,166 @@
+.main {
+    &__container {
+        padding: 0;
+    }
+
+    &-link {
+        margin-top: rem(35);
+        border-bottom: 2px solid transparent;
+        text-transform: uppercase;
+
+        &:hover {
+            border-bottom: 2px solid $subColor1;
+        }
+    }
+
+    .navbar {
+        margin-top: rem(15);
+
+        display: flex;
+        column-gap: rem(8);
+
+        font-size: rem(12);
+        line-height: rem(14);
+        text-align: center;
+
+        &__category {
+            &:hover {
+                color: $subColor2;
+            }
+
+            &_active {
+                color: $subColor6;
+            }
+        }
+
+        &__divider {
+            font-size: rem(7);
+        }
+    }
+
+    .more {
+        width: rem(250);
+        padding: rem(15) 0;
+        margin-top: rem(50);
+        background: $subColor4;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-weight: 600;
+        line-height: rem(22);
+        text-transform: uppercase;
+        color: $subColor1;
+
+        &:hover {
+            animation: shadow-pop-tr 0.5s ease-out both;
+        }
+
+        animation: shadow-pop-tr-reverse 0.5s ease-out both;
+    }
+
+
+    .cards {
+        width: 100%;
+        display: flex;
+        margin-top: rem(75);
+        column-gap: rem(15);
+
+        justify-content: center;
+
+        .card {
+            display: inherit;
+            flex-direction: column;
+            height: fit-content;
+            transform: scale(1);
+            transition: 0.6s;
+
+            &:hover {
+                animation: shadow-drop-bottom 0.6s ease-out both;
+                transform: scale(1.05);
+                transition: 0.6s;
+            }
+
+            &__img {
+                width: rem(230);
+                height: rem(365);
+                position: relative;
+
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            &__fav {
+                &-btn {
+                    width: rem(45);
+                    height: rem(45);
+                    background: $subColor3;
+                    border-radius: 50%;
+                    position: absolute;
+                    bottom: rem(15);
+                    right: rem(20);
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    svg {
+                        stroke: $mainColor;
+                    }
+
+                    &:hover svg {
+                        stroke: $subColor2;
+                    }
+                }
+            }
+
+            &__wrapper {
+                display: inherit;
+                flex-direction: column;
+                align-items: center;
+                margin-top: rem(29);
+            }
+
+            &__title {
+                font-weight: 500;
+                font-size: rem(18);
+                line-height: rem(26);
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+            &__subtitle {
+                font-weight: 300;
+                line-height: rem(23);
+                text-align: center;
+                text-transform: capitalize;
+            }
+
+            &__pricewrap {
+                display: inherit;
+                gap: rem(5);
+                margin-top: rem(2);
+            }
+
+            &__price {
+                font-weight: 600;
+                font-size: rem(14);
+                line-height: rem(20);
+                letter-spacing: 0.045em;
+                text-transform: uppercase;
+
+                &_old {
+                    color: $subColor6;
+                    text-decoration: line-through;
+                }
+
+                &_new {
+                    color: $subColor2;
+                }
+            }
+        }
+    }
+}
