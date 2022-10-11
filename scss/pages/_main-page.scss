@@ -244,6 +244,15 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            .cards {
+                @media (max-width: $mobile) {
+                    flex-direction: column;
+                }
+                .card {
+                    align-items: center;
+                    margin-top: rem(30);
+                }
+            }
         }
 
 
